@@ -31,3 +31,24 @@ data_inicio timestamp default current_timestamp,
 status varchar(20) default 'ativo' check (status in ('ativa', 'cancelada', 'trancada')),
 constraint fk_matriculas_alunos foreign key (aluno_id) references alunos(id)
 )
+
+create table itens_matriculas(
+id serial primary key,
+matricula_id int not null,
+modalidade_id int not null,
+duracao_meses int not null check (duracao_meses > 0),
+taxa_adesao decimal(10,2) default 0.00 check (taxa_adesao >= 0),
+constraint fk_matricula_matriculas foreign key(matricula_id) references matriculas(id),
+constraint fk_matricula_modalidade foreign key (modalidade_id) references modalidades(id)
+)
+
+INSERT INTO planos (nome, valor_mensal_base) VALUES
+('Basic Fit', 89.90),
+('Fitness Standard', 120.00),
+('VIP Premium', 250.00);
+
+INSERT INTO alunos (nome, email, cpf, telefone) VALUES
+('Carlos Eduardo', 'carlos@email.com', '12345678901', '11988887777'),
+('Mariana Lima', 'mariana@email.com', '98765432100', '11977776666'),
+('Roberto Souza', 'roberto@email.com', '45678912300', '11966665555');
+
