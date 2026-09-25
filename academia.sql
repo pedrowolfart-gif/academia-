@@ -47,8 +47,24 @@ INSERT INTO planos (nome, valor_mensal_base) VALUES
 ('Fitness Standard', 120.00),
 ('VIP Premium', 250.00);
 
+INSERT INTO modalidades (plano_id, nome, sala, capacidade_maxima, disponível) VALUES
+(16, 'Musculação Livre', 'Arena 01', 50, TRUE),
+(17, 'Crossfit Pro', 'Estúdio 01', 20, TRUE),
+(18, 'Pilates Avançado', 'Estúdio 02', 10, TRUE);
+
 INSERT INTO alunos (nome, email, cpf, telefone) VALUES
 ('Carlos Eduardo', 'carlos@email.com', '12345678901', '11988887777'),
 ('Mariana Lima', 'mariana@email.com', '98765432100', '11977776666'),
 ('Roberto Souza', 'roberto@email.com', '45678912300', '11966665555');
 
+INSERT INTO matriculas (aluno_id, status) VALUES
+(1, 'ativa'),
+(2, 'ativa'),
+(3, 'ativa'),
+(1, 'cancelada');
+
+INSERT INTO itens_matriculas (matricula_id, modalidade_id, duracao_meses, taxa_adesao) VALUES
+(1, 48, 12, 50.00),
+(2, 47, 6, 30.00),
+(3, 46, 12, 0.00),
+(4, 46, 3, 0.00);
